@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="J2A Multimarcas: seminovos revisados com procedência garantida em São Martinho - RS. Financiamento em até 60x e aceitamos seu usado na troca.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="J2A Multimarcas · Seminovos em São Martinho - RS">
+<meta property="og:description" content="Estoque revisado, financiamento em até 60x e seu usado na troca. Veja os carros e simule sua parcela.">
+<meta property="og:url" content="https://j2a-site.vercel.app/">
+<meta property="og:image" content="https://j2a-site.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoDealer","name":"J2A Multimarcas","image":"https://j2a-site.vercel.app/img/og.jpg","url":"https://j2a-site.vercel.app/","telephone":"+55 55 99999-9999","address":{"@type":"PostalAddress","addressLocality":"São Martinho","addressRegion":"RS","addressCountry":"BR"},"openingHours":["Mo-Fr 08:00-18:00","Sa 08:00-12:00"],"priceRange":"R$"}</script>
+<title>J2A Multimarcas</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='5'%20fill='%230A0B0F'/%3E%3Cpath%20d='M6%2020l3-6c.5-1%201.5-1.6%202.6-1.6h8.8c1.1%200%202.1.6%202.6%201.6l3%206v3H6z'%20fill='%23E0342C'/%3E%3Ccircle%20cx='11'%20cy='23'%20r='2.4'%20fill='%23fff'/%3E%3Ccircle%20cx='21'%20cy='23'%20r='2.4'%20fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#F4F5F7; --card:#FFFFFF; --ink:#15171C; --ink-2:#3F444D; --muted:#6B7280; --line:#E3E6EB;
+  --dark:#0A0B0F; --dark-2:#15171D; --dark-3:#1E2129; --accent:#E0342C; --accent-d:#B8261F; --accent-wash:#FDECEB;
+  --wa:#1FA855; --wa-d:#168A45; --ok:#16A34A; --gold:#F5B23D;
+  --shadow:0 1px 2px rgba(20,22,26,.05), 0 12px 32px -14px rgba(20,22,26,.18);
+  --shadow-lg:0 2px 4px rgba(20,22,26,.06), 0 30px 70px -28px rgba(20,22,26,.35);
+  --f-d:"Oswald",system-ui,sans-serif; --f-b:"Manrope",system-ui,sans-serif; --maxw:1200px; --r:6px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-b);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--f-d);margin:0;line-height:1;text-transform:uppercase;letter-spacing:.005em}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-d);font-size:13px;letter-spacing:.2em;font-weight:600;text-transform:uppercase;color:var(--accent)}
+.eyebrow::before{content:"";width:26px;height:3px;background:var(--accent)}
+.cut{clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-family:var(--f-d);font-weight:600;font-size:15px;letter-spacing:.07em;text-transform:uppercase;padding:.85em 1.8em;border:0;cursor:pointer;transition:transform .15s,background .2s,box-shadow .2s;white-space:nowrap;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.btn:active{transform:translateY(1px)}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-d);transform:translateY(-1px)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{background:var(--wa-d);transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.18)}
+.btn-light{background:#E9ECF1;color:var(--ink)}
+.btn-light:hover{background:#DDE1E8}
+.btn-dark{background:var(--dark);color:#fff}
+.btn-dark:hover{background:#000}
+.btn svg{width:18px;height:18px;flex:0 0 auto}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:40;background:rgba(10,11,15,.94);backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(255,255,255,.06)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mk{width:40px;height:40px;background:var(--accent);display:grid;place-items:center;clip-path:polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%)}
+.brand .mk svg{width:26px;height:26px}
+.brand b{font-family:var(--f-d);font-weight:700;font-size:22px;letter-spacing:.04em;display:block;line-height:1;text-transform:uppercase}
+.brand small{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);display:block;margin-top:3px}
+nav{display:flex;gap:24px}
+nav a{font-weight:700;font-size:14px;color:rgba(255,255,255,.75);position:relative}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--accent);transition:right .25s}
+nav a:hover{color:#fff} nav a:hover::after{right:0}
+
+/* ===== HERO ===== */
+.hero{background:var(--dark);color:#fff;padding:60px 0 44px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg .g1{position:absolute;width:800px;height:800px;border-radius:50%;filter:blur(130px);background:rgba(224,52,44,.32);top:-320px;right:-220px}
+.hero-bg .g2{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(120px);background:rgba(255,255,255,.06);bottom:-260px;left:-160px}
+.hero-bg .lines{position:absolute;inset:0;background:repeating-linear-gradient(-22deg,transparent 0 120px,rgba(224,52,44,.10) 120px 123px);-webkit-mask-image:linear-gradient(90deg,transparent 28%,#000 72%);mask-image:linear-gradient(90deg,transparent 28%,#000 72%)}
+.hero-bg .wm{position:absolute;left:-1%;bottom:2%;font-family:var(--f-d);font-weight:700;font-size:21vw;line-height:1;color:rgba(255,255,255,.035);letter-spacing:-.02em;white-space:nowrap;text-transform:uppercase}
+.hero-bg .floor{position:absolute;bottom:-30px;left:50%;width:220%;height:380px;transform:translateX(-50%) perspective(420px) rotateX(64deg);background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:52px 52px;-webkit-mask-image:linear-gradient(to top,#000 5%,transparent 70%);mask-image:linear-gradient(to top,#000 5%,transparent 70%);animation:floor 10s linear infinite}
+@keyframes floor{to{background-position:0 52px,52px 0}}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.9rem,6.4vw,5.2rem);font-weight:700}
+.hero h1 span{color:var(--accent)}
+.hero p.lead{color:rgba(255,255,255,.72);font-size:1.1rem;margin-top:18px;max-width:50ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-family:var(--f-d);text-transform:uppercase;letter-spacing:.08em;font-size:12.5px;color:rgba(255,255,255,.7)}
+.hero-badges span{display:inline-flex;align-items:center;gap:7px}
+.hero-badges svg{width:16px;height:16px;color:var(--accent)}
+
+/* vitrine giratória */
+.showcase{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);padding:26px 26px 20px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.showcase::before{content:"";position:absolute;top:-30%;left:50%;width:80%;height:120%;transform:translateX(-50%);background:radial-gradient(50% 45% at 50% 30%,rgba(255,255,255,.16),transparent 70%);pointer-events:none}
+.sc-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-d);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:rgba(255,255,255,.6)}
+.sc-top b{color:var(--accent)}
+.sc-car{display:grid;place-items:center;position:relative;min-height:190px}
+.sc-car svg{width:100%;max-width:480px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.75));transition:opacity .45s,transform .45s}
+.sc-car.fade svg{opacity:0;transform:translateX(40px)}
+.sc-car .shine{position:absolute;z-index:2;top:20%;left:0;width:26%;height:60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);animation:sweep 4.5s ease-in-out infinite;pointer-events:none;mix-blend-mode:screen}
+@keyframes sweep{0%,55%{left:-30%;opacity:0}60%{opacity:1}100%{left:120%;opacity:0}}
+.sc-info{display:flex;justify-content:space-between;align-items:end;gap:14px;position:relative;z-index:1}
+.sc-info h3{font-size:1.7rem}
+.sc-info small{display:block;font-family:var(--f-b);text-transform:none;letter-spacing:0;color:rgba(255,255,255,.6);font-size:13px;margin-top:4px}
+.sc-price{text-align:right}
+.sc-price b{font-family:var(--f-d);font-size:2rem;color:#fff;display:block;line-height:1}
+.sc-price span{font-size:12px;color:rgba(255,255,255,.55)}
+.sc-dots{display:flex;gap:6px;margin-top:14px}
+.sc-dots i{width:22px;height:3px;background:rgba(255,255,255,.2);cursor:pointer;transition:background .2s}
+.sc-dots i.on{background:var(--accent)}
+.sc-cta{display:flex;gap:8px;margin-top:12px}
+.sc-cta .btn{padding:.7em 1.2em;font-size:13px}
+
+/* search bar */
+.search{background:#fff;color:var(--ink);padding:14px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr auto;gap:10px;box-shadow:var(--shadow-lg);margin-top:34px;position:relative;z-index:2;border-top:3px solid var(--accent)}
+.search label{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px;font-family:var(--f-d)}
+.search input,.search select{width:100%;border:1.5px solid var(--line);border-radius:4px;padding:10px 12px;font:inherit;font-weight:600;font-size:14px;color:var(--ink);background:#fff;outline:none}
+.search input:focus,.search select:focus{border-color:var(--accent)}
+.search .go{align-self:end}
+
+/* stats strip */
+.strip{background:var(--dark-2);color:#fff;border-top:1px solid rgba(255,255,255,.06)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.st{padding:20px 18px;border-left:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:12px}
+.st:first-child{border-left:none}
+.st b{font-family:var(--f-d);font-size:1.8rem;color:#fff;line-height:1}
+.st span{font-size:12.5px;color:rgba(255,255,255,.6);font-weight:600;line-height:1.3}
+.st .ic{width:38px;height:38px;background:rgba(224,52,44,.18);display:grid;place-items:center;color:var(--accent);flex:0 0 auto;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%)}
+.st .ic svg{width:20px;height:20px}
+
+/* ===== SECTIONS ===== */
+.sec{padding:64px 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.sec-head h2{font-size:clamp(1.8rem,3.2vw,2.5rem);margin-top:8px}
+.sec-head p{color:var(--muted);margin-top:8px;max-width:60ch}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:3px;padding:8px 14px;font-family:var(--f-d);text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:13px;cursor:pointer;color:var(--ink-2);transition:all .15s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--dark);color:#fff;border-color:var(--dark)}
+.count{margin-left:auto;font-size:13.5px;color:var(--muted);font-weight:700}
+.sort{border:1.5px solid var(--line);border-radius:3px;padding:8px 12px;font:inherit;font-weight:700;font-size:13px;background:#fff;color:var(--ink-2)}
+
+/* ===== CARDS ===== */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.car{background:var(--card);border:1px solid var(--line);border-top:3px solid transparent;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;flex-direction:column;position:relative}
+.car:hover{transform:translateY(-5px);border-top-color:var(--accent);box-shadow:0 30px 60px -24px rgba(224,52,44,.4),var(--shadow-lg)}
+.car.sold{opacity:.7}
+.car.cmp{border-top-color:var(--gold)}
+.ph{aspect-ratio:16/10;position:relative;overflow:hidden;display:grid;place-items:center;cursor:pointer;box-shadow:inset 0 -3px 0 var(--accent);
+  background:radial-gradient(70% 55% at 50% 12%,rgba(255,255,255,.16),transparent 62%),radial-gradient(120% 90% at 50% 100%,#3b3e47,#111318 72%)}
+.ph svg{width:86%;filter:drop-shadow(0 20px 20px rgba(0,0,0,.6));transition:transform .4s cubic-bezier(.2,.8,.2,1);position:relative;z-index:1}
+.car:hover .ph svg{transform:translateX(8px) scale(1.05)}
+.ph::after{content:"";position:absolute;left:8%;right:8%;bottom:9%;height:16px;border-radius:50%;background:rgba(0,0,0,.5);filter:blur(9px)}
+.ph::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.22) 48%,transparent 62%);transform:translateX(-130%);transition:transform .75s ease}
+.car:hover .ph::before{transform:translateX(130%)}
+.badge{position:absolute;top:12px;left:12px;z-index:3;font-family:var(--f-d);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 15px;background:var(--accent);color:#fff;clip-path:polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%)}
+.badge.novo{background:var(--ok)} .badge.vend{background:#374151}
+.fav{position:absolute;top:10px;right:10px;z-index:3;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);border:none;display:grid;place-items:center;cursor:pointer;color:var(--ink-2)}
+.fav svg{width:17px;height:17px} .fav.on{color:var(--accent)}
+.body{padding:16px 16px 12px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body .marca{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.body h3{font-size:1.3rem;font-weight:600}
+.body .versao{font-size:13px;color:var(--muted);margin-top:-4px;font-weight:600}
+.specs{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--ink-2);font-weight:600}
+.specs span{display:inline-flex;align-items:center;gap:5px}
+.specs svg{width:14px;height:14px;color:var(--muted)}
+.price-row{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.price{font-family:var(--f-d);font-weight:700;font-size:1.75rem;color:var(--ink);line-height:1}
+.price small{display:block;font-family:var(--f-b);font-size:11.5px;font-weight:700;color:var(--accent);letter-spacing:0;margin-top:4px;text-transform:none}
+.cmp-lab{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:var(--muted);cursor:pointer;user-select:none;white-space:nowrap}
+.cmp-lab input{accent-color:var(--accent);width:15px;height:15px}
+.acts{display:flex;gap:8px;padding:0 16px 16px}
+.acts .btn{flex:1;padding:.8em 1em;font-size:13px}
+.empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--muted);background:#fff;border:1px dashed var(--line)}
+
+/* ===== DESTAQUES (carrossel) ===== */
+.show-wrap{background:linear-gradient(180deg,var(--dark-2),var(--bg) 100%);padding:0 0 10px}
+.show-head{display:flex;align-items:end;justify-content:space-between;gap:14px;color:#fff;padding-top:34px}
+.show-head h2{font-size:1.9rem}
+.show-nav{display:flex;gap:8px}
+.show-nav button{width:42px;height:42px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:grid;place-items:center;transition:all .15s;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+.show-nav button:hover{background:var(--accent);border-color:var(--accent)}
+.show-nav svg{width:18px;height:18px}
+.show{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 4px 22px;scrollbar-width:none}
+.show::-webkit-scrollbar{display:none}
+.show .car{flex:0 0 min(360px,84vw);scroll-snap-align:start}
+
+/* ===== BOLSO (busca reversa) ===== */
+.budget{background:var(--dark);color:#fff;position:relative;overflow:hidden}
+.budget::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-22deg,transparent 0 140px,rgba(224,52,44,.07) 140px 143px);pointer-events:none}
+.budget .wrap{position:relative}
+.bgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;align-items:center}
+.budget h2{font-size:clamp(2rem,3.6vw,3rem)}
+.budget h2 span{color:var(--accent)}
+.budget p{color:rgba(255,255,255,.7);margin-top:14px;max-width:46ch}
+.bform{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bform label{font-family:var(--f-d);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:rgba(255,255,255,.6);display:block;margin-bottom:6px}
+.bform input,.bform select{width:100%;border:1.5px solid rgba(255,255,255,.15);background:rgba(0,0,0,.35);color:#fff;border-radius:4px;padding:11px 12px;font:inherit;font-weight:700;font-size:15px;outline:none}
+.bform input:focus,.bform select:focus{border-color:var(--accent)}
+.bform .full{grid-column:1/-1}
+.bres{margin-top:26px;position:relative}
+.bres-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;color:rgba(255,255,255,.75);font-weight:700}
+.bres-head b{color:#fff;font-family:var(--f-d);font-size:1.3rem;text-transform:uppercase}
+.bres .grid .car{border-top-color:transparent}
+
+/* ===== COMPARAR ===== */
+.cmpbar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(120%);z-index:80;background:var(--dark);color:#fff;padding:12px 14px 12px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 50px -14px rgba(0,0,0,.7);transition:transform .3s;border-left:4px solid var(--gold);max-width:calc(100vw - 32px)}
+.cmpbar.on{transform:translateX(-50%) translateY(0)}
+.cmpbar b{font-family:var(--f-d);text-transform:uppercase;letter-spacing:.08em;font-size:14px}
+.cmpbar .btn{padding:.6em 1.1em;font-size:13px}
+.cmp-table{width:100%;border-collapse:collapse;font-size:14px}
+.cmp-table th,.cmp-table td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.cmp-table th{font-family:var(--f-d);text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--muted);font-weight:600;width:150px}
+.cmp-table td b{font-family:var(--f-d);font-size:1.1rem;text-transform:uppercase}
+.cmp-table td .p{font-family:var(--f-d);font-size:1.3rem;color:var(--accent)}
+.cmp-table .best{color:var(--ok);font-weight:800}
+
+/* ===== DIFERENCIAIS ===== */
+.dark-band{background:var(--dark-2);color:#fff}
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--accent);padding:22px}
+.feat .ic{width:44px;height:44px;background:var(--accent);display:grid;place-items:center;margin-bottom:14px;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%)}
+.feat .ic svg{width:22px;height:22px;color:#fff}
+.feat h3{font-size:1.15rem;letter-spacing:.03em}
+.feat p{color:rgba(255,255,255,.62);font-size:14px;margin-top:6px}
+
+/* ===== AVALIE SEU USADO ===== */
+.aval{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center}
+.aval h2{font-size:clamp(1.8rem,3.2vw,2.5rem)}
+.aval p{color:var(--muted);margin-top:12px}
+.aform{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px;box-shadow:var(--shadow)}
+.aform label{font-family:var(--f-d);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);display:block;margin-bottom:6px}
+.aform input,.aform textarea{width:100%;border:1.5px solid var(--line);border-radius:4px;padding:10px 12px;font:inherit;font-weight:600;font-size:14px;outline:none}
+.aform input:focus,.aform textarea:focus{border-color:var(--accent)}
+.aform .full{grid-column:1/-1}
+.aform textarea{min-height:64px;resize:vertical}
+
+/* ===== RECENTES ===== */
+.recent{padding:10px 0 40px}
+.recent .grid{grid-template-columns:repeat(4,1fr)}
+
+/* ===== CONTATO ===== */
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.cbox{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);padding:26px;box-shadow:var(--shadow)}
+.cbox h3{font-size:1.4rem;margin-bottom:14px}
+.crow{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line);font-size:15px}
+.crow:first-of-type{border-top:none}
+.crow svg{width:20px;height:20px;color:var(--accent);flex:0 0 auto;margin-top:2px}
+.crow b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:2px;font-family:var(--f-d)}
+.map{background:linear-gradient(135deg,#dfe4ea,#c9d0d8);min-height:280px;display:grid;place-items:center;color:#4b5563;font-weight:700;position:relative;overflow:hidden;border:1px solid var(--line)}
+.map::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.5) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.5) 2px,transparent 2px);background-size:60px 60px}
+.map .pin{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.map .pin svg{width:40px;height:40px;color:var(--accent)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--dark);color:rgba(255,255,255,.7);padding:34px 0 96px;font-size:13.5px}
+.ft{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.ft .brand b{color:#fff}
+.demo-note{margin-top:18px;font-size:12px;color:rgba(255,255,255,.45);max-width:80ch}
+
+/* ===== MODAL ===== */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(6,8,12,.78);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:18px}
+.modal.open{display:flex}
+.dlg{background:#fff;color:var(--ink);max-width:1000px;width:100%;max-height:92vh;overflow:auto;box-shadow:var(--shadow-lg);position:relative;border-top:4px solid var(--accent)}
+.dlg-close{position:absolute;top:12px;right:12px;z-index:3;width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;cursor:pointer;box-shadow:var(--shadow)}
+.dlg-close svg{width:18px;height:18px}
+.dlg-grid{display:grid;grid-template-columns:1.1fr .9fr}
+.dlg-ph{aspect-ratio:4/3;background:radial-gradient(70% 55% at 50% 12%,rgba(255,255,255,.16),transparent 62%),radial-gradient(120% 90% at 50% 100%,#3b3e47,#111318 72%);display:grid;place-items:center;position:relative}
+.dlg-ph svg{width:86%;filter:drop-shadow(0 22px 22px rgba(0,0,0,.6))}
+.dlg-ph .badge{top:16px;left:16px}
+.thumbs{display:flex;gap:8px;padding:12px;background:#0f1114}
+.thumbs div{flex:1;aspect-ratio:4/3;background:linear-gradient(135deg,#2a2d34,#1a1c21);border:2px solid transparent}
+.thumbs div:first-child{border-color:var(--accent)}
+.dlg-in{padding:26px 26px 22px}
+.dlg-in .marca{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dlg-in h2{font-size:2.1rem;margin-top:4px}
+.dlg-in .versao{color:var(--muted);margin-top:4px;font-weight:600}
+.dlg-in .price{font-size:2.5rem;margin:14px 0 2px}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.spec{background:var(--bg);border-left:2px solid var(--accent);padding:8px 10px;font-size:13px;font-weight:700}
+.spec b{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;font-family:var(--f-d)}
+.opts{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px}
+.opts span{font-size:12px;font-weight:700;background:var(--accent-wash);color:var(--accent-d);padding:5px 9px}
+.desc{font-size:14px;color:var(--ink-2);margin:6px 0 14px}
+.dlg-cta{display:grid;grid-template-columns:1fr auto;gap:8px}
+.sim{margin-top:16px;border:1px solid var(--line);border-left:3px solid var(--accent);padding:14px}
+.sim h4{font-size:1rem;margin-bottom:10px;letter-spacing:.06em}
+.sim-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sim label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:4px;font-family:var(--f-d)}
+.sim input,.sim select{width:100%;border:1.5px solid var(--line);border-radius:4px;padding:8px 10px;font:inherit;font-weight:600;font-size:14px}
+.sim-out{margin-top:10px;background:var(--accent-wash);padding:10px 12px;font-size:13px;color:var(--ink-2)}
+.sim-out b{font-family:var(--f-d);font-size:1.4rem;color:var(--accent);display:block}
+.sim-out small{color:var(--muted)}
+.similar{padding:0 26px 26px}
+.similar h4{font-size:1rem;letter-spacing:.06em;margin-bottom:10px}
+.sim-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sim-item{border:1px solid var(--line);padding:8px 10px;cursor:pointer;display:flex;gap:8px;align-items:center;transition:border-color .15s}
+.sim-item:hover{border-color:var(--accent)}
+.sim-item svg{width:56px;flex:0 0 auto}
+.sim-item b{font-family:var(--f-d);text-transform:uppercase;font-size:13px;display:block;line-height:1.1}
+.sim-item span{font-size:12px;color:var(--accent);font-weight:800}
+
+/* toast / float / mobile bar */
+.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--dark);color:#fff;padding:11px 18px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:all .3s;z-index:200;border-left:3px solid var(--accent)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:70;width:56px;height:56px;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(31,168,85,.7);transition:transform .15s;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.wa-float:hover{transform:scale(1.06)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:75;display:none;grid-template-columns:1fr 1fr 1fr;background:var(--dark);border-top:1px solid rgba(255,255,255,.1)}
+.mbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 6px 9px;color:#fff;font-family:var(--f-d);text-transform:uppercase;letter-spacing:.08em;font-size:11px}
+.mbar a.w{background:var(--wa)}
+.mbar svg{width:20px;height:20px}
+
+.burger{display:none;width:44px;height:44px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;place-items:center;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+.burger svg{width:22px;height:22px}
+.mnav{display:none;position:fixed;left:0;right:0;top:72px;z-index:39;background:var(--dark);border-bottom:1px solid rgba(255,255,255,.1);padding:10px 22px 16px;flex-direction:column;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+.mnav.open{display:flex}
+.mnav a{color:#fff;font-family:var(--f-d);text-transform:uppercase;letter-spacing:.1em;font-size:15px;padding:13px 6px;border-bottom:1px solid rgba(255,255,255,.07)}
+.mnav a:last-child{border-bottom:0}
+.totop{position:fixed;left:18px;bottom:18px;z-index:70;width:46px;height:46px;background:var(--dark);color:#fff;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;transform:translateY(8px);clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+.totop.on{opacity:1;pointer-events:auto;transform:none}
+.totop svg{width:20px;height:20px}
+.toolbar .sel{border:1.5px solid var(--line);border-radius:3px;padding:8px 10px;font:inherit;font-weight:700;font-size:13px;background:#fff;color:var(--ink-2)}
+.chip .n{opacity:.55;margin-left:4px}
+@media (max-width:960px){.burger{display:grid}}
+@media (max-width:760px){.totop{left:14px;bottom:82px}}
+.cimg{display:block;opacity:0;transition:opacity .55s ease}
+.cimg.ld{opacity:1}
+.ph .cimg,.dlg-ph .cimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.car:hover .ph .cimg{transform:scale(1.06)}
+.ph:has(.cimg)::after,.dlg-ph:has(.cimg)::after{display:none}
+.ph:has(.cimg){background:#111318}
+.sc-car{aspect-ratio:16/9;min-height:0;overflow:hidden;background:#111318}
+.sc-car .cimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform .45s}
+.sc-car.fade .cimg{opacity:0;transform:scale(1.04)}
+.sc-car::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,11,15,.55));pointer-events:none;z-index:1}
+.cmp-table .cimg{width:150px;height:94px;object-fit:cover}
+.sim-item .cimg{width:78px;height:50px;object-fit:cover;flex:0 0 auto}
+.js .reveal{opacity:0;transform:translateY(22px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+
+@media (max-width:960px){
+  nav{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .search{grid-template-columns:1fr 1fr} .search .go{grid-column:1/-1}
+  .strip .wrap{grid-template-columns:1fr 1fr} .st:nth-child(3){border-left:none}
+  .grid,.recent .grid{grid-template-columns:repeat(2,1fr)}
+  .feats{grid-template-columns:repeat(2,1fr)}
+  .bgrid,.aval,.contact,.dlg-grid{grid-template-columns:1fr}
+  .spec-grid{grid-template-columns:repeat(2,1fr)}
+  .sim-list{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .wa-float{display:none} .mbar{display:grid}
+  .cmpbar{bottom:70px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .grid,.recent .grid{grid-template-columns:1fr}
+  .feats{grid-template-columns:1fr}
+  .search{grid-template-columns:1fr}
+  .strip .wrap{grid-template-columns:1fr} .st{border-left:none;border-top:1px solid rgba(255,255,255,.08)} .st:first-child{border-top:none}
+  .hero{padding:40px 0 30px}
+  .hero-cta .btn{flex:1}
+  .showcase{min-height:0;padding:18px}
+  .sim-row,.bform,.aform{grid-template-columns:1fr}
+  .brand small{display:none}
+  .dlg-cta{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="#topo">
+      <span class="mk"><svg viewBox="0 0 24 24" fill="#fff"><path d="M4 14l2.2-4.4A2 2 0 0 1 8 8.5h8a2 2 0 0 1 1.8 1.1L20 14v3.5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V17H7v.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V14zm3.2-1h9.6l-1.3-2.5H8.5L7.2 13zM7 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg></span>
+      <span><b>J2A Multimarcas</b><small>São Martinho · RS</small></span>
+    </a>
+    <nav><a href="#destaques">Destaques</a><a href="#bolso">Cabe no bolso</a><a href="#estoque">Estoque</a><a href="#avaliar">Avaliar usado</a><a href="#contato">Contato</a></nav>
+    <a class="btn btn-wa" href="https://wa.me/5555999999999?text=Ol%C3%A1%20J2A!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.06L2 22l5.06-1.33A10 10 0 1 0 12 2zm4.5 12.4c-.3-.15-1.7-.84-2-.94-.26-.1-.45-.15-.64.15-.19.28-.73.94-.9 1.13-.16.19-.33.21-.62.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.08-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.02 3.08 4.9 4.32.68.29 1.22.47 1.63.6.69.22 1.31.19 1.8.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36z"/></svg>
+      WhatsApp
+    </a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Menu móvel"><a href="#destaques">Destaques</a><a href="#bolso">Quanto cabe no bolso</a><a href="#estoque">Estoque</a><a href="#avaliar">Avaliar meu usado</a><a href="#contato">Contato</a></nav>
+
+<main id="topo">
+
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"><span class="g1"></span><span class="g2"></span><div class="lines"></div><div class="wm">J2A</div><div class="floor"></div></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Multimarcas · São Martinho - RS</span>
+        <h1 style="margin-top:14px">O carro que você quer, <span>do jeito que você pode.</span></h1>
+        <p class="lead">Seminovos revisados, procedência garantida e as melhores condições da região. Financiamento em até 60x, com ou sem entrada, e o seu usado vale como parte do pagamento.</p>
+        <div class="hero-cta">
+          <a class="btn btn-accent" href="#estoque">Ver estoque</a>
+          <a class="btn btn-ghost" href="#bolso">Quanto cabe no bolso?</a>
+        </div>
+        <div class="hero-badges">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Procedência garantida</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Até 60x</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Aceitamos troca</span>
+        </div>
+      </div>
+      <div class="showcase" id="showcase" aria-live="polite">
+        <div class="sc-top"><span><b>●</b> Vitrine ao vivo</span><span id="scIdx">01 / 05</span></div>
+        <div class="sc-car" id="scCar"><span class="shine"></span></div>
+        <div class="sc-info"><div><h3 id="scName">—</h3><small id="scSub">—</small></div><div class="sc-price"><b id="scPrice">—</b><span id="scParc">—</span></div></div>
+        <div class="sc-dots" id="scDots"></div>
+        <div class="sc-cta"><button class="btn btn-accent" id="scOpen">Ver detalhes</button><a class="btn btn-wa" id="scWa" href="#" target="_blank" rel="noopener">Tenho interesse</a></div>
+      </div>
+    </div>
+
+    <form class="search" id="search" onsubmit="return false">
+      <div><label>Buscar</label><input id="q" placeholder="Ex.: Civic, Onix, Hilux…"></div>
+      <div><label>Marca</label><select id="fMarca"><option value="">Todas</option></select></div>
+      <div><label>Ano mínimo</label><select id="fAno"><option value="">Qualquer</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option></select></div>
+      <div><label>Preço até</label><select id="fPreco"><option value="">Qualquer</option><option value="60000">R$ 60 mil</option><option value="80000">R$ 80 mil</option><option value="100000">R$ 100 mil</option><option value="150000">R$ 150 mil</option><option value="200000">R$ 200 mil</option></select></div>
+      <div class="go"><button class="btn btn-accent" type="button" id="goBtn">Buscar</button></div>
+    </form>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <div class="st"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14l2.2-4.4A2 2 0 0 1 8 8.5h8a2 2 0 0 1 1.8 1.1L20 14v4H4z"/><circle cx="7.5" cy="16" r="1.5"/><circle cx="16.5" cy="16" r="1.5"/></svg></span><div><b id="stTotal">0</b><span>veículos no estoque agora</span></div></div>
+    <div class="st"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M2 10h20M6 15h4"/></svg></span><div><b>60x</b><span>financiamento, com ou sem entrada</span></div></div>
+    <div class="st"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg></span><div><b>Troca</b><span>seu usado como entrada</span></div></div>
+    <div class="st"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6z"/></svg></span><div><b id="stNovos">0</b><span>chegaram esta semana</span></div></div>
+  </div>
+</section>
+
+<section class="show-wrap" id="destaques">
+  <div class="wrap">
+    <div class="show-head reveal">
+      <div><span class="eyebrow">Destaques da semana</span><h2>Chegaram agora. Não vão durar.</h2></div>
+      <div class="show-nav"><button id="showPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button><button id="showNext" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button></div>
+    </div>
+    <div class="show" id="show"></div>
+  </div>
+</section>
+
+<section class="sec budget" id="bolso">
+  <div class="wrap">
+    <div class="bgrid">
+      <div class="reveal">
+        <span class="eyebrow">Busca pelo bolso</span>
+        <h2 style="margin-top:12px">Diga a parcela. <span>A gente mostra o carro.</span></h2>
+        <p>Você não precisa saber qual carro quer. Diz quanto cabe no seu mês, quanto tem de entrada, e o site te mostra tudo que encaixa. Sem susto, sem enrolação.</p>
+      </div>
+      <div class="bform reveal">
+        <div><label>Parcela até (R$/mês)</label><input id="bParc" type="number" min="200" step="50" value="1500"></div>
+        <div><label>Entrada (R$)</label><input id="bEnt" type="number" min="0" step="1000" value="10000"></div>
+        <div><label>Em quantas vezes</label><select id="bN"><option>36</option><option selected>48</option><option>60</option></select></div>
+        <div style="align-self:end"><button class="btn btn-accent" id="bGo" style="width:100%">Ver o que cabe</button></div>
+      </div>
+    </div>
+    <div class="bres" id="bres" hidden>
+      <div class="bres-head"><b id="bTitle">—</b><span id="bSub"></span></div>
+      <div class="grid" id="bGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="estoque">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Estoque completo</span><h2>Todos os veículos</h2><p>Atualizado sempre que entra ou sai carro. Marque "comparar" em até 3 pra ver lado a lado.</p></div>
+    </div>
+    <div class="toolbar">
+      <button class="chip" data-cat="todos" aria-pressed="true">Todos</button>
+      <button class="chip" data-cat="hatch" aria-pressed="false">Hatch</button>
+      <button class="chip" data-cat="sedan" aria-pressed="false">Sedan</button>
+      <button class="chip" data-cat="suv" aria-pressed="false">SUV</button>
+      <button class="chip" data-cat="pickup" aria-pressed="false">Picape</button>
+      <button class="chip" data-cat="favs" aria-pressed="false">❤ Favoritos<span class="n" id="favCount">0</span></button>
+      <select class="sel" id="fCambio"><option value="">Câmbio: todos</option><option>Automático</option><option>Manual</option></select>
+      <select class="sel" id="fComb"><option value="">Combustível: todos</option><option>Flex</option><option>Diesel</option></select>
+      <span class="count" id="count"></span>
+      <select class="sort" id="sort"><option value="rel">Relevância</option><option value="pmin">Menor preço</option><option value="pmax">Maior preço</option><option value="ano">Mais novos</option><option value="km">Menor km</option></select>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="sec dark-band" id="diferenciais">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><span class="eyebrow">Por que comprar na J2A</span><h2>Compra segura, do início ao fim.</h2></div></div>
+    <div class="feats">
+      <div class="feat reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Procedência garantida</h3><p>Laudo cautelar, histórico verificado e documentação em dia em todos os veículos.</p></div>
+      <div class="feat reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M2 10h20M6 15h4"/></svg></div><h3>Financiamento em até 60x</h3><p>Principais bancos, aprovação rápida, com ou sem entrada.</p></div>
+      <div class="feat reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><h3>Seu usado na troca</h3><p>Avaliamos na hora e usamos como entrada. Troca justa e transparente.</p></div>
+      <div class="feat reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Revisado e com garantia</h3><p>Entregamos revisado, higienizado e com garantia de motor e câmbio.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="avaliar">
+  <div class="wrap">
+    <div class="aval">
+      <div class="reveal">
+        <span class="eyebrow">Avalie seu usado</span>
+        <h2 style="margin-top:12px">Quanto vale o seu carro hoje?</h2>
+        <p>Preenche aqui embaixo e a gente responde com uma avaliação pelo WhatsApp. Ele pode virar a entrada do seu próximo carro.</p>
+      </div>
+      <form class="aform reveal" id="aform" onsubmit="return false">
+        <div><label>Marca</label><input id="aMarca" placeholder="Ex.: Chevrolet"></div>
+        <div><label>Modelo</label><input id="aModelo" placeholder="Ex.: Onix LT"></div>
+        <div><label>Ano</label><input id="aAno" type="number" placeholder="2019"></div>
+        <div><label>Quilometragem</label><input id="aKm" type="number" placeholder="60000"></div>
+        <div class="full"><label>Observações</label><textarea id="aObs" placeholder="Estado geral, único dono, revisões…"></textarea></div>
+        <div class="full"><button class="btn btn-wa" id="aGo" style="width:100%">Pedir avaliação no WhatsApp</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="recent" id="recentSec" hidden>
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Vistos recentemente</span><h2>Você deu uma olhada nestes</h2></div></div>
+    <div class="grid" id="recentGrid"></div>
+  </div>
+</section>
+
+<section class="sec" id="contato">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><span class="eyebrow">Contato</span><h2>Venha conhecer o estoque de perto.</h2></div></div>
+    <div class="contact">
+      <div class="cbox reveal">
+        <h3>J2A Multimarcas</h3>
+        <div class="crow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Endereço</b>Rua Principal, 000 · Centro · São Martinho - RS</div></div>
+        <div class="crow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Horário</b>Seg a Sex, 8h às 18h · Sáb, 8h às 12h</div></div>
+        <div class="crow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><div><b>WhatsApp</b>(55) 9 9999-9999</div></div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <a class="btn btn-wa" href="https://wa.me/5555999999999" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+          <a class="btn btn-light" href="#estoque">Ver estoque</a>
+        </div>
+      </div>
+      <div class="map reveal"><div class="pin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>Mapa da localização<small style="font-weight:600;color:#6b7280">(Google Maps entra aqui)</small></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <span class="brand"><span class="mk"><svg viewBox="0 0 24 24" fill="#fff"><path d="M4 14l2.2-4.4A2 2 0 0 1 8 8.5h8a2 2 0 0 1 1.8 1.1L20 14v3.5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V17H7v.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V14zm3.2-1h9.6l-1.3-2.5H8.5L7.2 13zM7 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg></span><span><b>J2A Multimarcas</b></span></span>
+      <span>Seminovos com procedência · São Martinho - RS · 2026</span>
+    </div>
+    <p class="demo-note">Prévia desenvolvida pela MAJEX Digital Solutions para a J2A Multimarcas. Veículos, valores e dados são ilustrativos; as fotos reais dos carros entram no lugar das ilustrações. *Parcelas são simulações aproximadas, sujeitas a análise de crédito.<br>Fotos ilustrativas via Wikimedia Commons (Public domain, CC BY-SA 4.0, CC BY-SA 2.0). Autores: Bull-Doser, JamesYoung8167, RL GNZLZ, Nave do Conhecimento, Matti Blume, Alexander Migl, NaBUru38, RL GNZLZ from Chile, Maxi-Napo-99, Ary8600, MercurySable99.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5555999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.06L2 22l5.06-1.33A10 10 0 1 0 12 2zm4.5 12.4c-.3-.15-1.7-.84-2-.94-.26-.1-.45-.15-.64.15-.19.28-.73.94-.9 1.13-.16.19-.33.21-.62.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.08-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.02 3.08 4.9 4.32.68.29 1.22.47 1.63.6.69.22 1.31.19 1.8.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36z"/></svg></a>
+
+<button class="totop" id="totop" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
+<div class="mbar" aria-label="Ações rápidas">
+  <a href="#estoque"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14l2.2-4.4A2 2 0 0 1 8 8.5h8a2 2 0 0 1 1.8 1.1L20 14v4H4z"/></svg>Estoque</a>
+  <a href="tel:+5555999999999"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5.1 2h3a2 2 0 0 1 2 1.72l.7 2.8a2 2 0 0 1-.45 2.1L9.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4l2.8.7a2 2 0 0 1 1.7 2z"/></svg>Ligar</a>
+  <a class="w" href="https://wa.me/5555999999999" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.06L2 22l5.06-1.33A10 10 0 1 0 12 2z"/></svg>WhatsApp</a>
+</div>
+
+<div class="cmpbar" id="cmpbar"><b id="cmpTx">0 selecionados</b><button class="btn btn-accent" id="cmpOpen">Comparar</button><button class="btn btn-ghost" id="cmpClear">Limpar</button></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="dlg" id="dlg"></div></div>
+<div class="toast" id="toast">Copiado</div>
+
+<script>var CAR_IMGS={"1":"img/car1.webp","2":"img/car2.webp","3":"img/car3.webp","4":"img/car4.webp","5":"img/car5.webp","6":"img/car6.webp","7":"img/car7.webp","8":"img/car8.webp","9":"img/car9.webp","10":"img/car10.webp","11":"img/car11.webp","12":"img/car12.webp"};</script>
+<script>
+(function(){
+  /* ====== ESTOQUE (entrou/saiu carro: edita aqui) ====== */
+  var WA="5555999999999", LOJA="J2A Multimarcas", TAXA=0.0169;
+  var CARROS=[
+    {id:1, marca:"Honda", modelo:"Civic", versao:"EXL 2.0 Aut.", ano:2020, km:48000, preco:89900, cambio:"Automático", comb:"Flex", cor:"#e8e8ea", corNome:"Prata", cat:"sedan", portas:4, motor:"2.0", destaque:true, opc:["Couro","Multimídia","Câmera de ré","Sensor de estacionamento","Teto solar"], desc:"Único dono, revisões na concessionária, pneus novos. Bancos em couro, central multimídia e câmera de ré."},
+    {id:2, marca:"Toyota", modelo:"Corolla", versao:"XEi 2.0 Aut.", ano:2021, km:35000, preco:112900, cambio:"Automático", comb:"Flex", cor:"#1c1c1e", corNome:"Preto", cat:"sedan", portas:4, motor:"2.0", novo:true, opc:["Couro","Multimídia","Piloto automático adaptativo","Airbags laterais"], desc:"Impecável, garantia de fábrica, todas as revisões feitas. Conjunto de segurança completo."},
+    {id:3, marca:"Chevrolet", modelo:"Onix", versao:"1.0 Turbo LTZ", ano:2022, km:22000, preco:76900, cambio:"Automático", comb:"Flex", cor:"#c8102e", corNome:"Vermelho", cat:"hatch", portas:4, motor:"1.0 Turbo", novo:true, opc:["Multimídia","Câmera de ré","Ar digital","Rodas de liga"], desc:"Baixa quilometragem, econômico e completo. Ideal pra cidade."},
+    {id:4, marca:"Hyundai", modelo:"HB20", versao:"1.0 Sense", ano:2021, km:41000, preco:62900, cambio:"Manual", comb:"Flex", cor:"#f4f4f4", corNome:"Branco", cat:"hatch", portas:4, motor:"1.0", opc:["Ar-condicionado","Direção elétrica","Vidros elétricos"], desc:"Ótimo custo-benefício, revisado, ar-condicionado e direção elétrica."},
+    {id:5, marca:"Volkswagen", modelo:"T-Cross", versao:"200 TSI Comfortline", ano:2022, km:28000, preco:118900, cambio:"Automático", comb:"Flex", cor:"#2b5d9e", corNome:"Azul", cat:"suv", portas:4, motor:"1.0 TSI", destaque:true, opc:["Teto panorâmico","Multimídia","Câmera de ré","Sensor de estacionamento","Rodas 17\""], desc:"SUV completo, teto panorâmico, garantia de fábrica. Um dono."},
+    {id:6, marca:"Jeep", modelo:"Renegade", versao:"Longitude 1.8 Aut.", ano:2020, km:55000, preco:94900, cambio:"Automático", comb:"Flex", cor:"#6b7280", corNome:"Cinza", cat:"suv", portas:4, motor:"1.8", opc:["Multimídia","Câmera de ré","Rodas de liga","Faróis de neblina"], desc:"Revisado, pneus novos, central multimídia. Pronto pra estrada."},
+    {id:7, marca:"Fiat", modelo:"Toro", versao:"Freedom 1.8 Aut.", ano:2021, km:39000, preco:109900, cambio:"Automático", comb:"Flex", cor:"#f4f4f4", corNome:"Branco", cat:"pickup", portas:4, motor:"1.8", destaque:true, opc:["Capota marítima","Multimídia","Câmera de ré","Protetor de caçamba"], desc:"Picape completa, caçamba com capota, ideal pra trabalho e lazer."},
+    {id:8, marca:"Toyota", modelo:"Hilux", versao:"SRV 2.8 4x4 Diesel", ano:2019, km:98000, preco:189900, cambio:"Automático", comb:"Diesel", cor:"#1c1c1e", corNome:"Preto", cat:"pickup", portas:4, motor:"2.8 Diesel", opc:["4x4","Couro","Multimídia","Câmera de ré","Santo Antônio"], desc:"4x4, diesel, revisada. A picape mais procurada da região."},
+    {id:9, marca:"Fiat", modelo:"Argo", versao:"1.3 Drive", ano:2022, km:19000, preco:69900, cambio:"Manual", comb:"Flex", cor:"#e8e8ea", corNome:"Prata", cat:"hatch", portas:4, motor:"1.3", vendido:true, opc:["Multimídia","Ar-condicionado"], desc:"Vendido."},
+    {id:10, marca:"Chevrolet", modelo:"S10", versao:"LTZ 2.8 4x4 Diesel", ano:2020, km:72000, preco:169900, cambio:"Automático", comb:"Diesel", cor:"#2b5d9e", corNome:"Azul", cat:"pickup", portas:4, motor:"2.8 Diesel", opc:["4x4","Couro","Multimídia","Câmera de ré"], desc:"Cabine dupla, 4x4, revisada e com garantia."},
+    {id:11, marca:"Volkswagen", modelo:"Gol", versao:"1.0 MPI", ano:2019, km:64000, preco:48900, cambio:"Manual", comb:"Flex", cor:"#c8102e", corNome:"Vermelho", cat:"hatch", portas:4, motor:"1.0", opc:["Ar-condicionado","Direção hidráulica"], desc:"Econômico e confiável. Ótimo primeiro carro."},
+    {id:12, marca:"Honda", modelo:"HR-V", versao:"EXL 1.8 Aut.", ano:2021, km:33000, preco:124900, cambio:"Automático", comb:"Flex", cor:"#6b7280", corNome:"Cinza", cat:"suv", portas:4, motor:"1.8", novo:true, opc:["Couro","Multimídia","Câmera de ré","Teto solar","Sensor de estacionamento"], desc:"Completo, revisado, único dono. Espaço e economia."}
+  ];
+
+  var $=function(id){return document.getElementById(id);};
+  var BRL=function(n){return "R$ "+Math.round(n).toLocaleString("pt-BR");};
+  var KM=function(n){return n.toLocaleString("pt-BR")+" km";};
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
+  var parcela=function(P,n){ return P>0? P*TAXA/(1-Math.pow(1+TAXA,-n)) : 0; };
+  var byId=function(id){ return CARROS.filter(function(x){return x.id===id;})[0]; };
+  function carSvg(cor,cat){
+    var body = cat==="pickup" ? '<path d="M24 118 L48 82 Q58 66 78 66 L150 66 L160 84 L300 84 Q322 86 322 104 L322 122 L24 122 Z"/><path d="M84 72 L140 72 L152 86 L72 86 Z" fill="#8fc6ff" opacity=".85"/>'
+      : cat==="suv" ? '<path d="M26 118 L50 76 Q62 56 92 56 L230 56 Q262 56 282 78 L326 88 Q346 92 346 110 L346 122 L26 122 Z"/><path d="M96 62 L226 62 L252 84 L80 84 Z" fill="#8fc6ff" opacity=".85"/>'
+      : '<path d="M28 118 L58 78 Q72 52 104 52 L228 52 Q262 52 286 76 L336 86 Q362 92 362 112 L362 122 L28 122 Z"/><path d="M112 58 L222 58 L252 82 L96 82 Z" fill="#8fc6ff" opacity=".85"/>';
+    return '<svg viewBox="0 0 400 150"><g fill="'+cor+'">'+body+'</g><path d="M60 100 L330 100" stroke="rgba(255,255,255,.22)" stroke-width="3" stroke-linecap="round"/><path d="M110 60 Q200 44 290 64" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="100" cy="122" r="22" fill="#111"/><circle cx="100" cy="122" r="10" fill="#666"/><circle cx="300" cy="122" r="22" fill="#111"/><circle cx="300" cy="122" r="10" fill="#666"/><rect x="336" y="98" width="20" height="9" rx="3" fill="#ffd34d"/><rect x="32" y="100" width="16" height="8" rx="3" fill="#ff7a6b"/></svg>';
+  }
+  var CATL={hatch:"Hatch",sedan:"Sedan",suv:"SUV",pickup:"Picape"};
+  function catLabel(k){ return CATL[k]||k; }
+  function carMedia(c){ var u=(typeof CAR_IMGS!=="undefined")&&CAR_IMGS[c.id]; return u? '<img class="cimg" src="'+u+'" alt="'+esc(c.marca+" "+c.modelo+" "+c.ano)+'" loading="lazy">' : carMedia(c); }
+  function thumbsHtml(c){ var u=(typeof CAR_IMGS!=="undefined")&&CAR_IMGS[c.id]; if(!u) return thumbsHtml(c); return '<div class="thumbs">'+[50,15,85,50].map(function(p,i){return '<div style="background-image:url('+u+');background-size:'+(i===3?'160%':'cover')+';background-position:'+p+'% 50%"></div>';}).join("")+'</div>'; }
+  function waLink(c){ var t="Olá, "+LOJA+"! Tenho interesse no "+c.marca+" "+c.modelo+" "+c.versao+" "+c.ano+" ("+BRL(c.preco)+"). Ainda está disponível?"; return "https://wa.me/"+WA+"?text="+encodeURIComponent(t); }
+  function badgeOf(c){ return c.vendido?'<span class="badge vend">Vendido</span>':c.novo?'<span class="badge novo">Novo no estoque</span>':c.destaque?'<span class="badge">Destaque</span>':''; }
+
+  var favs={}, recent=[], compare=[];
+  try{ favs=JSON.parse(localStorage.getItem("j2a-favs")||"{}"); recent=JSON.parse(localStorage.getItem("j2a-recent")||"[]"); }catch(e){}
+  var state={cat:"todos", q:"", marca:"", ano:"", preco:"", sort:"rel", cambio:"", comb:""};
+
+  /* stats vivos */
+  var ativos=CARROS.filter(function(c){return !c.vendido;});
+  $("stTotal").textContent=ativos.length; $("stNovos").textContent=CARROS.filter(function(c){return c.novo&&!c.vendido;}).length;
+
+  var marcas=[]; CARROS.forEach(function(c){ if(marcas.indexOf(c.marca)<0) marcas.push(c.marca); }); marcas.sort();
+  marcas.forEach(function(m){ var o=document.createElement("option"); o.value=m; o.textContent=m; $("fMarca").appendChild(o); });
+
+  /* ===== card ===== */
+  function cardHtml(c, opts){
+    opts=opts||{};
+    var p48=parcela(c.preco*0.8,48);
+    var cmpOn=compare.indexOf(c.id)>=0;
+    return '<article class="car'+(c.vendido?" sold":"")+(cmpOn?" cmp":"")+'" data-id="'+c.id+'">'+
+      '<div class="ph" data-open="'+c.id+'">'+badgeOf(c)+'<button class="fav'+(favs[c.id]?" on":"")+'" data-fav="'+c.id+'" aria-label="Favoritar"><svg viewBox="0 0 24 24" fill="'+(favs[c.id]?"currentColor":"none")+'" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>'+carMedia(c)+'</div>'+
+      '<div class="body"><span class="marca">'+esc(c.marca)+' · '+catLabel(c.cat)+'</span><h3>'+esc(c.modelo)+' '+c.ano+'</h3><span class="versao">'+esc(c.versao)+'</span>'+
+      '<div class="specs"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'+KM(c.km)+'</span><span>'+esc(c.cambio)+'</span><span>'+esc(c.comb)+'</span></div>'+
+      '<div class="price-row"><div class="price">'+BRL(c.preco)+'<small>'+(opts.parc? opts.parc : 'ou 48x de '+BRL(p48)+'*')+'</small></div>'+
+      (c.vendido?'':'<label class="cmp-lab"><input type="checkbox" data-cmp="'+c.id+'"'+(cmpOn?" checked":"")+'> Comparar</label>')+'</div></div>'+
+      '<div class="acts"><button class="btn btn-light" data-open="'+c.id+'">Detalhes</button><a class="btn btn-wa" href="'+waLink(c)+'" target="_blank" rel="noopener">WhatsApp</a></div>'+
+    '</article>';
+  }
+  function bindGrid(el){
+    el.addEventListener("click",function(e){
+      var f=e.target.closest("[data-fav]"); if(f){ var id=f.dataset.fav; favs[id]=!favs[id]; try{localStorage.setItem("j2a-favs",JSON.stringify(favs));}catch(x){} renderAll(); toast(favs[id]?"Salvo nos favoritos ❤️":"Removido dos favoritos"); return; }
+      if(e.target.closest("[data-cmp]")) return;
+      var o=e.target.closest("[data-open]"); if(o){ openCar(parseInt(o.dataset.open,10)); }
+    });
+    el.addEventListener("change",function(e){
+      var cb=e.target.closest("[data-cmp]"); if(!cb) return;
+      var id=parseInt(cb.dataset.cmp,10);
+      if(cb.checked){ if(compare.length>=3){ cb.checked=false; toast("Máximo de 3 carros pra comparar"); return; } compare.push(id); }
+      else compare=compare.filter(function(x){return x!==id;});
+      renderAll(); updateCmpBar();
+    });
+  }
+
+  /* ===== estoque ===== */
+  function filtered(){
+    var list=CARROS.filter(function(c){
+      if(state.cat==="favs"){ if(!favs[c.id]) return false; } else if(state.cat!=="todos" && c.cat!==state.cat) return false;
+      if(state.cambio && c.cambio!==state.cambio) return false;
+      if(state.comb && c.comb!==state.comb) return false;
+      if(state.marca && c.marca!==state.marca) return false;
+      if(state.ano && c.ano<parseInt(state.ano,10)) return false;
+      if(state.preco && c.preco>parseInt(state.preco,10)) return false;
+      if(state.q){ var h=(c.marca+" "+c.modelo+" "+c.versao+" "+c.ano).toLowerCase(); if(h.indexOf(state.q)<0) return false; }
+      return true;
+    });
+    if(state.sort==="pmin") list.sort(function(a,b){return a.preco-b.preco;});
+    else if(state.sort==="pmax") list.sort(function(a,b){return b.preco-a.preco;});
+    else if(state.sort==="ano") list.sort(function(a,b){return b.ano-a.ano;});
+    else if(state.sort==="km") list.sort(function(a,b){return a.km-b.km;});
+    else list.sort(function(a,b){ return ((b.destaque?2:0)+(b.novo?1:0)-(b.vendido?5:0)) - ((a.destaque?2:0)+(a.novo?1:0)-(a.vendido?5:0)); });
+    return list;
+  }
+  function render(){
+    var list=filtered(), g=$("grid");
+    $("count").textContent=list.length+" veículo"+(list.length===1?"":"s");
+    $("favCount").textContent=Object.keys(favs).filter(function(k){return favs[k];}).length;
+    g.innerHTML=list.length? list.map(function(c){return cardHtml(c);}).join("") : '<div class="empty"><b>Nenhum veículo com esses filtros.</b><br>Tente ampliar a busca ou fale com a gente no WhatsApp.</div>';
+  }
+  function renderShow(){ var s=$("show"); var list=CARROS.filter(function(c){return (c.destaque||c.novo)&&!c.vendido;}); s.innerHTML=list.map(function(c){return cardHtml(c);}).join(""); }
+  function renderRecent(){
+    var sec=$("recentSec"), ids=recent.filter(function(id){return byId(id);}).slice(0,4);
+    if(!ids.length){ sec.hidden=true; return; }
+    sec.hidden=false; $("recentGrid").innerHTML=ids.map(function(id){return cardHtml(byId(id));}).join("");
+  }
+  function renderAll(){ render(); renderShow(); renderRecent(); if(!$("bres").hidden) renderBudget(); }
+
+  document.querySelectorAll(".chip").forEach(function(b){ b.addEventListener("click",function(){ state.cat=b.dataset.cat; document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===b);}); render(); }); });
+  $("sort").addEventListener("change",function(){ state.sort=this.value; render(); });
+  function readSearch(){ state.q=$("q").value.toLowerCase().trim(); state.marca=$("fMarca").value; state.ano=$("fAno").value; state.preco=$("fPreco").value; }
+  $("goBtn").addEventListener("click",function(){ readSearch(); render(); $("estoque").scrollIntoView({behavior:"smooth"}); });
+  $("q").addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); readSearch(); render(); $("estoque").scrollIntoView({behavior:"smooth"}); } });
+  ["fMarca","fAno","fPreco"].forEach(function(id){ $(id).addEventListener("change",function(){ readSearch(); render(); }); });
+  $("fCambio").addEventListener("change",function(){ state.cambio=this.value; render(); });
+  $("fComb").addEventListener("change",function(){ state.comb=this.value; render(); });
+  bindGrid($("grid")); bindGrid($("show")); bindGrid($("recentGrid")); bindGrid($("bGrid"));
+  $("showPrev").addEventListener("click",function(){ $("show").scrollBy({left:-380,behavior:"smooth"}); });
+  $("showNext").addEventListener("click",function(){ $("show").scrollBy({left:380,behavior:"smooth"}); });
+
+  /* ===== vitrine giratória ===== */
+  var feats=CARROS.filter(function(c){return (c.destaque||c.novo)&&!c.vendido;}), sci=0, scTimer=null, scCur=null;
+  function scRender(i, animate){
+    sci=(i+feats.length)%feats.length; var c=feats[sci]; scCur=c;
+    var car=$("scCar");
+    function paint(){
+      car.innerHTML='<span class="shine"></span>'+carMedia(c);
+      $("scName").textContent=c.marca+" "+c.modelo+" "+c.ano; $("scSub").textContent=c.versao+" · "+KM(c.km)+" · "+c.cambio;
+      $("scPrice").textContent=BRL(c.preco); $("scParc").textContent="ou 48x de "+BRL(parcela(c.preco*0.8,48))+"*";
+      $("scIdx").textContent=String(sci+1).padStart(2,"0")+" / "+String(feats.length).padStart(2,"0");
+      $("scWa").href=waLink(c);
+      $("scDots").innerHTML=feats.map(function(_,k){return '<i class="'+(k===sci?"on":"")+'" data-k="'+k+'"></i>';}).join("");
+      car.classList.remove("fade");
+    }
+    if(animate){ car.classList.add("fade"); setTimeout(paint,420); } else paint();
+  }
+  function scStart(){ clearInterval(scTimer); scTimer=setInterval(function(){ scRender(sci+1,true); },4200); }
+  $("scDots").addEventListener("click",function(e){ var d=e.target.closest("[data-k]"); if(d){ scRender(parseInt(d.dataset.k,10),true); scStart(); } });
+  $("scOpen").addEventListener("click",function(){ if(scCur) openCar(scCur.id); });
+  $("showcase").addEventListener("mouseenter",function(){ clearInterval(scTimer); });
+  $("showcase").addEventListener("mouseleave",scStart);
+  scRender(0,false); scStart();
+
+  /* ===== busca pelo bolso ===== */
+  function renderBudget(){
+    var B=parseFloat($("bParc").value)||0, E=parseFloat($("bEnt").value)||0, n=parseInt($("bN").value,10);
+    var list=CARROS.filter(function(c){ return !c.vendido && parcela(Math.max(0,c.preco-E),n)<=B; }).sort(function(a,b){return b.preco-a.preco;});
+    $("bres").hidden=false;
+    $("bTitle").textContent=list.length? list.length+" carro"+(list.length>1?"s cabem":" cabe")+" no seu bolso" : "Nenhum carro nessa faixa ainda";
+    $("bSub").textContent=list.length? "Até "+BRL(B)+"/mês em "+n+"x, com "+BRL(E)+" de entrada" : "Tente aumentar um pouco a parcela ou a entrada";
+    $("bGrid").innerHTML=list.map(function(c){ return cardHtml(c,{parc:n+"x de "+BRL(parcela(Math.max(0,c.preco-E),n))+" com sua entrada*"}); }).join("");
+    $("bres").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  $("bGo").addEventListener("click",renderBudget);
+
+  /* ===== comparar ===== */
+  function updateCmpBar(){ var bar=$("cmpbar"); $("cmpTx").textContent=compare.length+" selecionado"+(compare.length===1?"":"s")+" pra comparar"; bar.classList.toggle("on",compare.length>0); }
+  $("cmpClear").addEventListener("click",function(){ compare=[]; renderAll(); updateCmpBar(); });
+  $("cmpOpen").addEventListener("click",function(){
+    if(compare.length<2){ toast("Marque pelo menos 2 carros"); return; }
+    var cs=compare.map(byId);
+    var minP=Math.min.apply(null,cs.map(function(c){return c.preco;})), minK=Math.min.apply(null,cs.map(function(c){return c.km;})), maxA=Math.max.apply(null,cs.map(function(c){return c.ano;}));
+    function row(lab,fn){ return '<tr><th>'+lab+'</th>'+cs.map(fn).join("")+'</tr>'; }
+    $("dlg").innerHTML='<button class="dlg-close" id="dlgClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>'+
+      '<div style="padding:26px"><span class="eyebrow">Comparativo</span><h2 style="margin:8px 0 18px;font-size:1.8rem">Lado a lado</h2><div style="overflow:auto"><table class="cmp-table">'+
+      row("Veículo",function(c){return '<td><div style="width:150px">'+carMedia(c)+'</div><b>'+esc(c.marca+" "+c.modelo)+'</b><div style="font-size:12px;color:var(--muted)">'+esc(c.versao)+'</div></td>';})+
+      row("Preço",function(c){return '<td class="'+(c.preco===minP?"best":"")+'"><span class="p">'+BRL(c.preco)+'</span>'+(c.preco===minP?' <small>menor</small>':'')+'</td>';})+
+      row("48x de*",function(c){return '<td>'+BRL(parcela(c.preco*0.8,48))+'</td>';})+
+      row("Ano",function(c){return '<td class="'+(c.ano===maxA?"best":"")+'">'+c.ano+'</td>';})+
+      row("Km",function(c){return '<td class="'+(c.km===minK?"best":"")+'">'+KM(c.km)+'</td>';})+
+      row("Câmbio",function(c){return '<td>'+esc(c.cambio)+'</td>';})+
+      row("Combustível",function(c){return '<td>'+esc(c.comb)+'</td>';})+
+      row("Motor",function(c){return '<td>'+esc(c.motor)+'</td>';})+
+      row("Opcionais",function(c){return '<td style="font-size:13px">'+c.opc.map(esc).join(", ")+'</td>';})+
+      row("",function(c){return '<td><a class="btn btn-wa" style="font-size:12px;padding:.7em 1em" href="'+waLink(c)+'" target="_blank" rel="noopener">Tenho interesse</a></td>';})+
+      '</table></div></div>';
+    showModal();
+  });
+
+  /* ===== avalie seu usado ===== */
+  $("aGo").addEventListener("click",function(){
+    var m=$("aMarca").value.trim(), mo=$("aModelo").value.trim(), a=$("aAno").value.trim(), k=$("aKm").value.trim(), o=$("aObs").value.trim();
+    if(!m||!mo){ toast("Preencha marca e modelo"); $("aMarca").focus(); return; }
+    var t="Olá, "+LOJA+"! Quero avaliar meu usado:\n"+m+" "+mo+(a?" "+a:"")+(k?" · "+Number(k).toLocaleString("pt-BR")+" km":"")+(o?"\nObs: "+o:"")+"\nPode me passar uma avaliação?";
+    window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(t),"_blank","noopener");
+  });
+
+  /* ===== modal do carro ===== */
+  var lastFocus=null;
+  function showModal(){ lastFocus=document.activeElement; $("modal").classList.add("open"); document.body.style.overflow="hidden"; $("dlgClose").addEventListener("click",closeModal); setTimeout(function(){ $("dlgClose").focus(); },30); }
+  function closeModal(){ $("modal").classList.remove("open"); document.body.style.overflow=""; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+  $("modal").addEventListener("click",function(e){ if(e.target===this) closeModal(); });
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape") closeModal();
+    if(e.key==="Tab" && $("modal").classList.contains("open")){
+      var f=$("dlg").querySelectorAll("button,a[href],input,select,textarea"); if(!f.length) return;
+      var first=f[0], last=f[f.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    }
+  });
+  function openCar(id){
+    var c=byId(id); if(!c) return;
+    recent=[id].concat(recent.filter(function(x){return x!==id;})).slice(0,6); try{localStorage.setItem("j2a-recent",JSON.stringify(recent));}catch(e){}
+    var sim=CARROS.filter(function(x){return x.cat===c.cat&&x.id!==c.id&&!x.vendido;}).slice(0,3);
+    $("dlg").innerHTML='<button class="dlg-close" id="dlgClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>'+
+      '<div class="dlg-grid"><div><div class="dlg-ph">'+badgeOf(c)+carMedia(c)+'</div><div class="thumbs"><div></div><div></div><div></div><div></div></div></div>'+
+      '<div class="dlg-in"><span class="marca">'+esc(c.marca)+' · '+catLabel(c.cat)+'</span><h2>'+esc(c.modelo)+' '+c.ano+'</h2><div class="versao">'+esc(c.versao)+'</div>'+
+      '<div class="price">'+BRL(c.preco)+'</div><small style="color:var(--accent);font-weight:800">ou 48x de '+BRL(parcela(c.preco*0.8,48))+'*</small>'+
+      '<div class="spec-grid"><div class="spec"><b>Ano</b>'+c.ano+'</div><div class="spec"><b>Km</b>'+KM(c.km)+'</div><div class="spec"><b>Câmbio</b>'+esc(c.cambio)+'</div><div class="spec"><b>Combustível</b>'+esc(c.comb)+'</div><div class="spec"><b>Motor</b>'+esc(c.motor)+'</div><div class="spec"><b>Portas</b>'+c.portas+'</div></div>'+
+      '<div class="opts">'+c.opc.map(function(o){return '<span>'+esc(o)+'</span>';}).join("")+'</div>'+
+      '<p class="desc">'+esc(c.desc)+'</p>'+
+      '<div class="dlg-cta"><a class="btn btn-wa" href="'+waLink(c)+'" target="_blank" rel="noopener">Tenho interesse</a><button class="btn btn-light" id="shareBtn" title="Compartilhar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></button></div>'+
+      '<div class="sim"><h4>Simule suas parcelas</h4><div class="sim-row"><div><label>Entrada (R$)</label><input id="simEnt" type="number" min="0" step="1000" value="'+Math.round(c.preco*0.2)+'"></div><div><label>Parcelas</label><select id="simN"><option>24</option><option>36</option><option selected>48</option><option>60</option></select></div></div><div class="sim-out" id="simOut"></div></div>'+
+      '</div></div>'+
+      (sim.length?'<div class="similar"><h4>Você também pode gostar</h4><div class="sim-list">'+sim.map(function(s){return '<div class="sim-item" data-open="'+s.id+'">'+carMedia(s)+'<div><b>'+esc(s.marca+" "+s.modelo+" "+s.ano)+'</b><span>'+BRL(s.preco)+'</span></div></div>';}).join("")+'</div></div>':'');
+    showModal();
+    function calc(){ var ent=parseFloat($("simEnt").value)||0, n=parseInt($("simN").value,10), P=Math.max(0,c.preco-ent); $("simOut").innerHTML='<b>'+n+'x de '+BRL(parcela(P,n))+'</b><small>Simulação aproximada (juros ~1,69% a.m.). Condições reais dependem de análise de crédito.</small>'; }
+    $("simEnt").addEventListener("input",calc); $("simN").addEventListener("change",calc); calc();
+    $("shareBtn").addEventListener("click",function(){
+      var txt=c.marca+" "+c.modelo+" "+c.ano+" · "+BRL(c.preco)+" · "+LOJA+" · "+location.href.split("#")[0];
+      if(navigator.share){ navigator.share({title:c.marca+" "+c.modelo, text:txt}).catch(function(){}); }
+      else if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){toast("Link copiado pra compartilhar");}); }
+    });
+    $("dlg").querySelectorAll(".sim-item[data-open]").forEach(function(el){ el.addEventListener("click",function(){ openCar(parseInt(el.dataset.open,10)); }); });
+    renderRecent();
+  }
+
+  function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(function(){t.classList.remove("show");},1700); }
+
+  /* menu mobile */
+  var burger=$("burger"), mnav=$("mnav");
+  burger.addEventListener("click",function(){ var o=!mnav.classList.contains("open"); mnav.classList.toggle("open",o); burger.setAttribute("aria-expanded",o); });
+  mnav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click",function(){ mnav.classList.remove("open"); burger.setAttribute("aria-expanded","false"); }); });
+  /* voltar ao topo */
+  var totop=$("totop");
+  window.addEventListener("scroll",function(){ totop.classList.toggle("on",window.scrollY>600); },{passive:true});
+  totop.addEventListener("click",function(){ window.scrollTo({top:0,behavior:"smooth"}); });
+  /* fade-in das fotos em qualquer render */
+  function fadeImgs(){ requestAnimationFrame(function(){ document.querySelectorAll(".cimg:not(.ld)").forEach(function(i){ i.classList.add("ld"); }); }); }
+  new MutationObserver(fadeImgs).observe(document.body,{childList:true,subtree:true});
+  /* reveal */
+  document.documentElement.classList.add("js");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } }); },{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(function(n){ io.observe(n); });
+  } else { document.querySelectorAll(".reveal").forEach(function(n){ n.classList.add("in"); }); }
+
+  renderAll(); updateCmpBar();
+})();
+</script>
+
+</body>
+</html>
