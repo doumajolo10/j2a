@@ -320,6 +320,25 @@ footer{background:var(--dark);color:rgba(255,255,255,.7);padding:34px 0 96px;fon
 @media (max-width:760px){.totop{left:14px;bottom:82px}}
 .cimg{display:block;opacity:0;transition:opacity .55s ease}
 .cimg.ld{opacity:1}
+/* correções mobile (print do cliente) */
+.cmpbar{opacity:0;visibility:hidden;transition:transform .3s,opacity .3s,visibility .3s}
+.cmpbar.on{opacity:1;visibility:visible}
+@media (max-width:960px){
+  .hd{gap:10px}
+  header .btn-wa{padding:.6em 1em;font-size:13px}
+  .brand b{font-size:18px;white-space:nowrap}
+}
+@media (max-width:760px){
+  .totop{left:auto;right:14px;bottom:82px;opacity:0}
+  .totop.on{opacity:.85}
+}
+@media (max-width:560px){
+  header .btn-wa{font-size:0;gap:0;padding:.75em .8em}
+  header .btn-wa svg{width:20px;height:20px}
+  .brand .mk{width:36px;height:36px}
+  .brand b{font-size:16px}
+  .burger{width:40px;height:40px;flex:0 0 auto}
+}
 /* fundo limpo */
 .hero{background:radial-gradient(60% 55% at 78% 18%,rgba(224,52,44,.28),transparent 60%),radial-gradient(40% 40% at 10% 90%,rgba(255,255,255,.05),transparent 60%),linear-gradient(180deg,#10121A 0%,#0A0B0F 100%)}
 .hero-bg .lines,.hero-bg .wm,.hero-bg .floor,.hero-bg .g2{display:none}
